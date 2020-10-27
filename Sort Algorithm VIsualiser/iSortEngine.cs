@@ -9,8 +9,14 @@ namespace Sort_Algorithm_VIsualiser
 {
     interface iSortEngine
     {
-        void DoWork(int[] TheArray, Graphics g, int MaxVal); // method which takes the integer , array , graphic object and highest value
-                                                                                                                            //thats allowed
+
+
+
+        void NextStep();
+        bool isSorted(); 
+
+        void ReDraw(); //used to pause and resume or refresh the graphic object 
+
 
     }
 }
