@@ -58,7 +58,8 @@ namespace Sort_Algorithm_VIsualiser
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-
+            iSortEngine se = new SortEngineBubble(); // invokes the sortEngineBubble
+            se.DoWork(TheArray, g, panel1.Height); // invoke DoWork() method passing in the required parameters
         }
     }
 }

@@ -27,15 +27,47 @@ namespace Sort_Algorithm_VIsualiser
             while (!_sorted) // loop for array until its sorted 
             {
 
-                _sorted = IsSorted();
+                for (int i = 0; i < TheArray.Count() - 1; i++) // comparing each element to one after it
+                {
+                    if(TheArray[i] > TheArray[i + 1]) // if array element at current index is greater than the one adjecent to it , 
+                                                                                                            //then swap their values 
+                    {
+                        Swap(i, i + 1);
+
+                    }
+
+                }
+
+
+
+                _sorted = IsSorted(); // checks if it needs to continue 
 
             }
         }
 
+        private void Swap(int i, int p)
+        {
+            int temp = TheArray[i];
+            TheArray[i] = TheArray[i + 1];          // those 3 lines of code swap the values 
+            TheArray[i + 1] = temp;
+
+            g.FillRectangle(BlackBrush, i, 0, 1, MaxVal);  // removing old values from display and showing black background behind it 
+            g.FillRectangle(BlackBrush, p, 0, 1, MaxVal);
+
+            g.FillRectangle(WhiteBrush, i, MaxVal - TheArray[i], 1, MaxVal); // showing new values 
+            g.FillRectangle(WhiteBrush, p, MaxVal - TheArray[p], 1, MaxVal);
+        }
+
         private bool IsSorted()
         {
-            throw new NotImplementedException();
+            for (int i =0; i < TheArray.Count() - 1; i++)
+            {
+
+                if (TheArray[i] > TheArray[i + 1]) return false; // finding if element in array is adjecent if so returning false
+
+            }
+            return true;
         }
     }
-    }
 }
+
